@@ -1,0 +1,26 @@
+version: "2"
+services: 
+  app: 
+    container_name: fujitsu-app
+    restart: always
+    image: fujitsu-app 
+    ports:
+      - "5050:80"
+    links:
+      - api
+  api: 
+    container_name: fujitsu-api
+    restart: always
+    image: fujitsu-api 
+    ports:
+      - "57116:80"
+    links:
+      - meetupfujitsu
+  meetupfujitsu:     
+    container_name: meetupfujitsu
+    image: tutum/mongodb 
+    ports:
+      - "27017:27017"
+      - "28017:28017"   
+    environment:
+      - AUTH=no
