@@ -9,7 +9,7 @@ import { HttpUtilService } from '../services/http-util.service';
 export class ProductsService {
   private url: string = this._httpUtil.url('product');
 
-  constructor(private _http: HttpClient, private _httpUtil: HttpUtilService) {}
+  constructor(private _http: HttpClient, private _httpUtil: HttpUtilService) { }
 
   /**
    * Get All products
@@ -28,7 +28,7 @@ export class ProductsService {
   }
 
   /**
-   * Save the columnist
+   * Save product
    * @param products
    */
   save(products) {
@@ -37,7 +37,7 @@ export class ProductsService {
   }
 
   /**
-   * Update the columnist
+   * Update product
    * @param products
    */
   update(products) {
@@ -45,7 +45,7 @@ export class ProductsService {
   }
 
   /**
-   * Remove the Columnist
+   * Remove product
    * @param products
    */
   delete(id) {

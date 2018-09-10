@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-edit',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductEditComponent implements OnInit {
 
-  constructor() { }
+  public productId: number;
+
+
+  constructor(private activatedRoute: ActivatedRoute, ) {
+    this.activatedRoute.params.subscribe(param => {
+      this.productId = param['id'];
+    })
+
+  }
 
   ngOnInit() {
   }

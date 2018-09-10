@@ -6,7 +6,7 @@ import { ProductAddComponent } from './product-add/product-add.component';
 
 const routes: Routes = [
   { path: 'list', component: ProductListComponent },
-  { path: 'edit', component: ProductEditComponent },
+  { path: 'edit/:id', component: ProductEditComponent },
   { path: 'add', component: ProductAddComponent },
   {
     path: '',
@@ -19,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule {}
+export class AdminRoutingModule { }

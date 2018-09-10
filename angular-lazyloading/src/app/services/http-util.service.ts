@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Response, Headers, RequestOptions } from '@angular/http';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpUtilService {
-  constructor() {}
+  constructor() { }
 
-  private API_URL = 'http://localhost:57116/api/';
+  private API_URL = 'http://localhost:5000/api/';
 
   url(path: string) {
     return this.API_URL + path;
@@ -22,21 +22,9 @@ export class HttpUtilService {
       const authToken = localStorage['token'];
       headersParams.append('Authorization', `Bearer ${authToken}`);
     }
-
     const options = new RequestOptions({ headers: headersParams });
-
     return options;
   }
 
-  extrairDados(response: Response) {
-    const data = response.json();
-    console.log(data);
-    return data || {};
-  }
 
-  processarErros(erro: any) {
-    console.log(erro);
-    console.log(erro.status);
-    return Observable.throw('Erro acessando servidor remoto.');
-  }
 }
