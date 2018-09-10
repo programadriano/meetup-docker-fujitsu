@@ -2,22 +2,20 @@ version: "2"
 services: 
   app: 
     container_name: fujitsu-app
-    restart: always
     image: fujitsu-app 
     ports:
-      - "5050:80"
+      - "5050:81"
     links:
       - api
   api: 
     container_name: fujitsu-api
-    restart: always
     image: fujitsu-api 
     ports:
       - "57116:80"
     links:
-      - meetupfujitsu
-  meetupfujitsu:     
-    container_name: meetupfujitsu
+      - fujitsu-db
+  fujitsu-db:     
+    container_name: fujitsu-db
     image: tutum/mongodb 
     ports:
       - "27017:27017"
