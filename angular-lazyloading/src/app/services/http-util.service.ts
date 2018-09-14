@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs';
-
+import { Headers, RequestOptions } from '@angular/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ import { Observable } from 'rxjs';
 export class HttpUtilService {
   constructor() { }
 
-  private API_URL = 'http://localhost:5000/api/';
+  private API_URL = environment.API_URL + "/api/";
 
   url(path: string) {
     return this.API_URL + path;

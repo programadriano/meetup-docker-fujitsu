@@ -1,0 +1,47 @@
+version: "3"
+services:   
+  api_dev: 
+    container_name: fujitsudev-api
+    image: fujitsudev-api 
+    ports:
+      - "5000:80"
+    links:
+      - fujitsudev-db
+  fujitsudev-db:     
+    container_name: fujitsudev-db
+    image: tutum/mongodb 
+    ports:
+      - "27017:27017"
+      - "28017:28017"   
+    environment:
+      - AUTH=no
+  api_hml: 
+    container_name: fujitsuhml-api
+    image: fujitsuhml-api 
+    ports:
+      - "5100:80"
+    links:
+      - fujitsuhml-db
+  fujitsuhml-db:     
+    container_name: fujitsuhml-db
+    image: tutum/mongodb 
+    ports:
+      - "27117:27017"
+      - "28117:28017"   
+    environment:
+      - AUTH=no
+  api_prod: 
+    container_name: fujitsu-api
+    image: fujitsu-api 
+    ports:
+      - "5200:80"
+    links:
+      - fujitsu-db
+  fujitsu-db:     
+    container_name: fujitsu-db
+    image: tutum/mongodb 
+    ports:
+      - "27217:27017"
+      - "28217:28017"   
+    environment:
+      - AUTH=no     
