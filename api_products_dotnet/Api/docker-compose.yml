@@ -1,0 +1,16 @@
+version: "2"
+services:   
+  api_dev: 
+    build: .
+    ports:
+      - "5000:80"
+    links:
+      - fujitsudev-db
+  fujitsudev-db:     
+    container_name: fujitsudev-db
+    image: mongo 
+    ports:
+      - "27017:27017"
+      - "28017:28017"   
+    environment:
+      - AUTH=no
