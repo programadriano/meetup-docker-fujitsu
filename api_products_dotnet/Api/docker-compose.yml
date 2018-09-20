@@ -1,17 +1,19 @@
-version: "3"
+version: "2"
 services: 
   api_dev: 
     container_name: fujitsudev-api
     image: fujitsudev-api 
     ports:
       - "5000:80"
-    links:
+    depends_on:
       - fujitsudev-db
   fujitsudev-db:     
     container_name: fujitsudev-db
     image: tutum/mongodb 
     ports:
       - "27017:27017"
-      - "28017:28017"   
-    environment:
+      - "28017:28017" 
+    volumes:
+      - /Users/tadriano/Documents/data/dev:/data/db  
+    environment: 
       - AUTH=no
